@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <link href="js/demos/css/themes/default/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css"/>
+        <title>Due Date Calculator</title>
+        <meta charset="UTF-8">
+        <meta name = "viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="jquery.mobile-1.4.5.css">
+        <link rel="stylesheet" href = "#">
+        <script src="jquery.js"></script>
+        <script src="jquery.mobile-1.4.5.js">
+        </script>
+    </head>
+    <body>
+
+        <p>Date of last period:
+            <input type="text" id="txtDate"/>
+        </p>
+        <p>
+            <input type="button" onclick="getdate()" value="Submit" />
+        </p>
+        <p>Due Date:
+            <input type="text" id="due_Date"/>
+        </p>
+
+        <script>
+
+            $(function () {
+                $('#txtDate').datepicker();
+                $('#due_Date').datepicker();
+            });
+
+function getdate() {
+                var tt = document.getElementById('txtDate').value;
+                var date = new Date(tt);
+                var newdate = new Date(date);
+                newdate.setDate(newdate.getDate() + 280);
+                var dd = newdate.getDate();
+                var mm = newdate.getMonth() + 1;
+                var y = newdate.getFullYear();
+                var FormattedDate = dd + '/' + mm + '/' + y;
+                document.getElementById('due_Date').value = FormattedDate;
+            }
+
+
+        </script>
+
+    </body>
+</html>
